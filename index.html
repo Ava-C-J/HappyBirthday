@@ -8,40 +8,86 @@
 
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- <title>Happy Birthday!!!/title>
+ <title>Happy Birthday!!!</title>
 
  <style>
 
 body {
 
-background-color: rgb(26, 12, 223);
+    background-color: rgb(26, 12, 223);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 40px;
+    font-family: Arial, sans-serif;
+    color: rgb(255, 160, 223);
+}
+.top-text {
+    margin-top: 20px;
+}
+.centered-container {
+    position: relative;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.centered {
+    width: 200px;
+    height: 200px;
+}
 
-height: 100vh;
-
-margin: 0;
-
-display: flex;
-
-justify-content: center;
-
-align-items: center;
-
-font-size: 40px;
-
-font-family: Arial, sans-serif;
-
-color: rgb(241, 136, 15);
-
- }
-
+.bouncing {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+}
 </style>
 
 </head>
 
 <body>
-
- hello world
-
+    <div class="top-text">
+        Happy 18, Hayley! Open your present!
+    </div>
+    <div class="centered-container">
+        <a href="#" id="present-link">
+            <img src="present.png" alt="Present" class="centered" id="present">
+        </a>
+    </div>
+    <script>
+        document.getElementById('present-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            const present = document.getElementById('present');
+            const rect = present.getBoundingClientRect();
+            present.style.display = 'none';
+            const images = ['IMG_3551.PNG', 'IMG_3554.PNG', 'IMG_3560.PNG', 'IMG_3561.PNG', 'IMG_3563.PNG']; // Update with the correct paths to your images
+            images.forEach((src, index) => {
+                setTimeout(() => {
+                    let img = document.createElement('img');
+                    img.src = src;
+                    img.className = 'bouncing';
+                    const offsetX = Math.random() * 300 - 100; // Random offset between -50 and 50
+                    const offsetY = Math.random() * 300 - 100; // Random offset between -50 and 50
+                    img.style.left = (rect.left + offsetX) + 'px';
+                    img.style.top = (rect.top + offsetY) + 'px';
+                    document.body.appendChild(img);
+                }, index * 500); // Delay each image by 500ms
+            });
+        });
+    </script>
 </body>
 
 </html>
