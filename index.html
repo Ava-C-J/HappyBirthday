@@ -83,16 +83,12 @@ body {
                     let img = document.createElement('img');
                     img.src = src;
                     img.className = 'bouncing';
-                    const offsetX = Math.random() * 300 - 100; // Random offset between -100 and 200
-                    const offsetY = Math.random() * 300 - 100; // Random offset between -100 and 200
+                    const offsetX = Math.random() * 300 - 150; // Random offset between -100 and 200
+                    const offsetY = Math.random() * 300 - 150; // Random offset between -100 and 200
                     let left = rect.left + offsetX;
                     let top = rect.top + offsetY;
-                    const padding = 20; // Adjust padding as needed
-                    const minTopOffset = 100; // Minimum offset from the top
-                    if (left < padding) left = padding;
-                    if (left + img.width > window.innerWidth - padding) left = window.innerWidth - img.width - padding;
-                    if (top < padding + minTopOffset) top = padding + minTopOffset;
-                    if (top + img.height > window.innerHeight - padding) top = window.innerHeight - img.height - padding;
+                    const padding = 100; // Adjust padding as needed
+                    const minTopOffset = 250; // Minimum offset from the top
                     img.style.left = left + 'px';
                     img.style.top = top + 'px';
                     document.body.appendChild(img);
