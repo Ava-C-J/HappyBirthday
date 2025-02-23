@@ -87,11 +87,12 @@ body {
                     const offsetY = Math.random() * 300 - 100; // Random offset between -100 and 200
                     let left = rect.left + offsetX;
                     let top = rect.top + offsetY;
-                    // Ensure the image stays within the viewport with padding
-                    const padding = 20; // Adjust padding as needed
+                   // Ensure the image stays within the viewport with padding
+                   const padding = 20; // Adjust padding as needed
+                    const minTopOffset = 100; // Minimum offset from the top
                     if (left < padding) left = padding;
                     if (left + img.width > window.innerWidth - padding) left = window.innerWidth - img.width - padding;
-                    if (top < padding) top = padding;
+                    if (top < padding + minTopOffset) top = padding + minTopOffset;
                     if (top + img.height > window.innerHeight - padding) top = window.innerHeight - img.height - padding;
                     img.style.left = left + 'px';
                     img.style.top = top + 'px';
