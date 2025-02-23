@@ -59,7 +59,7 @@ body {
 </head>
 
 <body>
-    <div class="top-text">
+    <div class="top-text" id="top-text">
         Happy 18, Hayley! Open your present!
     </div>
     <div class="centered-container">
@@ -73,6 +73,7 @@ body {
             const present = document.getElementById('present');
             const rect = present.getBoundingClientRect();
             present.style.display = 'none';
+            document.getElementById('top-text').textContent = 'I love you! I hope you enjoyed! <3 from big sissie';
             const images = ['IMG_3551.PNG', 'IMG_3554.PNG', 'IMG_3560.PNG', 'IMG_3561.PNG', 'IMG_3563.PNG']; // Update with the correct paths to your images
             images.forEach((src, index) => {
                 setTimeout(() => {
